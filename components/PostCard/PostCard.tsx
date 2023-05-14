@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { PostMeta } from '@/lib/posts.types';
 
 interface PostCardProps {
@@ -14,8 +15,11 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <p className="text-xs text-neutral-600 mb-2 ">
         {post.formattedDate}, <span>{post.readIn}</span>
       </p>
-      <p className="text-sm text-neutral-800 line-clamp-2 md:text-base">{post.description}</p>
-      <button className="text-xs underline">share</button>
+      <p className="text-sm text-neutral-800 line-clamp-2 mb-1 md:text-base">{post.description}</p>
+
+      <Link href={`/${post.id}`} className="text-xs font-bold text-blue-400 underline">
+        Read more
+      </Link>
     </article>
   );
 };
