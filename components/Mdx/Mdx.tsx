@@ -9,7 +9,7 @@ interface MdxProps {
 export const Mdx: React.FC<MdxProps> = ({ content, className }) => {
   return (
     <article
-      className={classNames('prose', className)}
+      className={classNames('prose prose-neutral dark:prose-invert', className)}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   );

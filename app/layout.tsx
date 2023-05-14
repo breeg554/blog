@@ -4,6 +4,7 @@ import { Merriweather, Roboto } from 'next/font/google';
 import classNames from 'classnames';
 import { AppHeader } from '@/components/AppHeader';
 import { AppFooter, AppNav } from '@/components';
+import { cookies } from 'next/headers';
 
 export const metadata = {
   title: 'Blog!',
@@ -24,9 +25,13 @@ const merri = Merriweather({
 });
 
 export default function RootLayout({ children }: PropsWithChildren) {
+  const theme = cookies().get('theme');
   return (
-    <html lang="en" className={classNames('font-serif', merri.variable, roboto.variable)}>
-      <body className="min-h-screen bg-background">
+    <html
+      lang="en"
+      className={classNames('font-serif', merri.variable, roboto.variable, theme?.value)}
+    >
+      <body className="min-h-screen bg-background text-black dark:bg-zinc-900 dark:text-white">
         <AppHeader>
           <AppNav />
         </AppHeader>

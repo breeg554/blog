@@ -1,8 +1,8 @@
 import { remark } from 'remark';
+import matter from 'gray-matter';
 import html from 'remark-html';
 import path from 'path';
 import * as fs from 'fs';
-import matter from 'gray-matter';
 import { IPostMeta, Post, PostMeta } from '@/lib/posts.types';
 
 const POSTS_DIRECTORY = path.join(process.cwd(), 'content');
@@ -46,14 +46,5 @@ export async function getSortedPosts(): Promise<PostMeta[]> {
     } else {
       return -1;
     }
-  });
-}
-
-export async function getAllPostIds() {
-  const fileNames = fs.readdirSync(POSTS_DIRECTORY);
-  return fileNames.map((fileName) => {
-    return {
-      id: fileName.replace(/\.mdx$/, ''),
-    };
   });
 }

@@ -1,6 +1,10 @@
 import React, { PropsWithChildren } from 'react';
+import { ThemeSwitcher } from '@/components';
+import { useTheme } from '@/hooks';
 
 export const AppHeader: React.FC<PropsWithChildren> = ({ children }) => {
+  const theme = useTheme();
+
   return (
     <header className="w-full py-5 px-4">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -10,7 +14,7 @@ export const AppHeader: React.FC<PropsWithChildren> = ({ children }) => {
           {children}
         </div>
 
-        <button>Dark/Light</button>
+        <ThemeSwitcher theme={theme} />
       </div>
     </header>
   );
