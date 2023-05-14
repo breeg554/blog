@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import matter from 'gray-matter';
 import { Post, PostMeta } from '@/lib/posts.types';
 
-const POSTS_DIRECTORY = path.join(process.cwd(), 'posts');
+const POSTS_DIRECTORY = path.join(process.cwd(), 'content');
 
 export async function getPost(id: string): Promise<Post | null> {
   const fullPath = path.join(POSTS_DIRECTORY, `${id}.mdx`);

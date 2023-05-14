@@ -1,9 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface MdxProps {
   content: string;
+  className?: string;
 }
 
-export const Mdx: React.FC<MdxProps> = ({ content }) => {
-  return <article className="prose" dangerouslySetInnerHTML={{ __html: content }} />;
+export const Mdx: React.FC<MdxProps> = ({ content, className }) => {
+  return (
+    <article
+      className={classNames('prose', className)}
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
+  );
 };

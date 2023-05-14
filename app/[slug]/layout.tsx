@@ -1,13 +1,51 @@
 import { PropsWithChildren } from 'react';
-import Link from 'next/link';
+import { Metadata } from 'next';
+import { getAllPostIds, getPost } from '@/lib/posts';
+import { Banner } from './components/Banner';
+import { notFound } from 'next/navigation';
 
-export default function PostLayout({ children }: PropsWithChildren) {
+interface PostLayoutProps extends PropsWithChildren {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function PostLayout({ children, params }: PostLayoutProps) {
+  const post = await getPost(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const { publishedAt, title, description, image } = post;
+
   return (
-    <>
-      <header className="mb-10">
-        <Link href="/">Home Page</Link>
+    <section className="w-full py-20">
+      <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
+        <p className="text-sm text-neutral-600 mb-1">{publishedAt.toLocaleString()}</p>
+        <h1 className="font-bold text-2xl text-neutral-800 mb-2 md:text-4xl">{title}</h1>
+        {description && <h2 className="text-base font-normal text-neutral-700">{description}</h2>}
       </header>
-      <main>{children}</main>
-    </>
+
+      {image && <Banner className="mb-4 md:mb-10" src={image} alt={title} />}
+
+      {children}
+    </section>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPostIds();
+
+  return posts.map((post) => ({
+    slug: post.id,
+  }));
+}
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const post = await getPost(params.slug);
+
+  if (!post) return;
+
+  return { title: post.title };
 }

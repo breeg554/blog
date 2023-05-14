@@ -2,6 +2,7 @@ import './globals.css';
 import { PropsWithChildren } from 'react';
 import { Merriweather, Roboto } from 'next/font/google';
 import classNames from 'classnames';
+import { AppHeader } from '@/components/AppHeader';
 
 export const metadata = {
   title: 'Blog!',
@@ -24,7 +25,10 @@ const merri = Merriweather({
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={classNames('font-serif', merri.variable, roboto.variable)}>
-      <body>{children}</body>
+      <body className="min-h-screen bg-background">
+        <AppHeader />
+        <main className="max-w-5xl mx-auto">{children}</main>
+      </body>
     </html>
   );
 }
