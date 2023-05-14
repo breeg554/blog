@@ -1,5 +1,7 @@
 import { getAllPostIds, getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
+import { Mdx } from '@/components/Mdx';
+import { Metadata } from 'next';
 
 interface PostProps {
   params: {
@@ -18,7 +20,7 @@ export default async function Post({ params }: PostProps) {
     <section>
       <h1 className="text-red-500">{post.title}</h1>
       <h2>{post.publishedAt.toLocaleString()}</h2>
-      <div className="mt-10" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+      <Mdx content={post.contentHtml} />
     </section>
   );
 }
@@ -29,4 +31,12 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     slug: post.id,
   }));
+}
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+  const post = await getPost(params.slug);
+
+  if (!post) return;
+
+  return { title: post.title };
 }
