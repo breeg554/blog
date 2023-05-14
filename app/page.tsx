@@ -5,7 +5,7 @@ export default async function Home() {
   const posts = await getSortedPosts();
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4">
       <h1 className="text-red-500 my-10">Hello from homepage</h1>
 
       <PostsList className="flex gap-3 mb-10" posts={posts} />
