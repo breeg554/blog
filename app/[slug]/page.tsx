@@ -1,6 +1,7 @@
 import { getPost } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import { Mdx } from '@/components/Mdx';
+import { FloatingSocialButtons } from './components/FloatingSocialButtons';
 
 interface PostProps {
   params: {
@@ -15,5 +16,11 @@ export default async function Post({ params }: PostProps) {
     notFound();
   }
 
-  return <Mdx className="px-4 max-w-3xl mx-auto" content={post.contentHtml} />;
+  return (
+    <div className="relative">
+      <Mdx className="px-4 max-w-3xl mx-auto" content={post.contentHtml} />
+
+      <FloatingSocialButtons />
+    </div>
+  );
 }
