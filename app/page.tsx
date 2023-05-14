@@ -1,20 +1,15 @@
 import Link from 'next/link';
 import { getSortedPosts } from '@/lib/posts';
+import { PostsList } from '@/components';
 
 export default async function Home() {
   const posts = await getSortedPosts();
 
   return (
-    <main>
-      <ul className="flex gap-3 mb-10">
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={post.id}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-      <h1 className="text-red-500">Home Page</h1>
-      <p>Test</p>
-    </main>
+    <div className="max-w-4xl mx-auto">
+      <h1 className="text-red-500 my-10">Hello from homepage</h1>
+
+      <PostsList className="flex gap-3 mb-10" posts={posts} />
+    </div>
   );
 }

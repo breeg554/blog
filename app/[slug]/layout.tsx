@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { Metadata } from 'next';
 import { getAllPostIds, getPost } from '@/lib/posts';
-import { Banner } from './components/Banner';
+import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
 
 interface PostLayoutProps extends PropsWithChildren {
@@ -17,17 +17,17 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     notFound();
   }
 
-  const { publishedAt, title, description, image } = post;
+  const { publishedAt, title, subtitle, image } = post;
 
   return (
     <section className="w-full py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
         <p className="text-sm text-neutral-600 mb-1">{publishedAt.toLocaleString()}</p>
         <h1 className="font-bold text-2xl text-neutral-800 mb-2 md:text-4xl">{title}</h1>
-        {description && <h2 className="text-base font-normal text-neutral-700">{description}</h2>}
+        {subtitle && <h2 className="text-base font-normal text-neutral-700">{subtitle}</h2>}
       </header>
 
-      {image && <Banner className="mb-4 md:mb-10" src={image} alt={title} />}
+      {image && <BannerImage className="mb-4 md:mb-10" src={image} alt={title} />}
 
       {children}
     </section>
