@@ -23,7 +23,7 @@ export default async function Home() {
         </ul>
       </section>
 
-      <h2 className="text-lg text-neutral-800 font-bold font-sans mb-4">Recent posts</h2>
+      <h2 className="text-base text-neutral-800 font-bold font-sans mb-4">Recent posts</h2>
       <PostsList className="flex gap-3 mb-10" posts={posts} />
     </div>
   );

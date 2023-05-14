@@ -6,3 +6,4 @@ export * from './PostCard';
 export * from './PostsList';
 export * from './AppNav';
 export * from './Avatar';
+export * from './AppFooter';

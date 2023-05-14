@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 import { Merriweather, Roboto } from 'next/font/google';
 import classNames from 'classnames';
 import { AppHeader } from '@/components/AppHeader';
-import { AppNav } from '@/components';
+import { AppFooter, AppNav } from '@/components';
 
 export const metadata = {
   title: 'Blog!',
@@ -31,7 +31,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <AppNav />
         </AppHeader>
 
-        <main className="max-w-5xl mx-auto">{children}</main>
+        <main className="grow max-w-5xl mx-auto">{children}</main>
+
+        <AppFooter />
       </body>
     </html>
   );
