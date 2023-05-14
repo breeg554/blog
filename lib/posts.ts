@@ -3,7 +3,7 @@ import html from 'remark-html';
 import path from 'path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
-import { Post, PostMeta } from '@/lib/posts.types';
+import { IPostMeta, Post, PostMeta } from '@/lib/posts.types';
 
 const POSTS_DIRECTORY = path.join(process.cwd(), 'content');
 
@@ -16,14 +16,14 @@ export async function getPost(id: string): Promise<Post | null> {
   const processedContent = await remark().use(html).process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  return {
+  return Post.fromMdxFile({
     id,
     contentHtml,
     ...matterResult.data,
-  } as Post;
+  } as Post);
 }
 
-export async function getSortedPosts() {
+export async function getSortedPosts(): Promise<PostMeta[]> {
   const fileNames = fs.readdirSync(POSTS_DIRECTORY);
 
   const allPostsData = fileNames.map((fileName) => {
@@ -34,10 +34,10 @@ export async function getSortedPosts() {
 
     const matterResult = matter(fileContents);
 
-    return {
+    return PostMeta.fromMdxFile({
       id,
       ...matterResult.data,
-    } as PostMeta;
+    } as IPostMeta);
   });
 
   return allPostsData.sort((a, b) => {

@@ -1,5 +1,4 @@
 import { PropsWithChildren } from 'react';
-import { Metadata } from 'next';
 import { getAllPostIds, getPost } from '@/lib/posts';
 import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
@@ -17,12 +16,12 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     notFound();
   }
 
-  const { publishedAt, title, subtitle, image } = post;
+  const { title, subtitle, image, formattedDate } = post;
 
   return (
     <section className="w-full py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
-        <p className="text-sm text-neutral-600 mb-1">{publishedAt.toLocaleString()}</p>
+        <p className="text-sm text-neutral-600 mb-1">{formattedDate}</p>
         <h1 className="font-bold text-2xl text-neutral-800 mb-2 md:text-4xl">{title}</h1>
         {subtitle && <h2 className="text-base font-normal text-neutral-700">{subtitle}</h2>}
       </header>
@@ -42,10 +41,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({ params }: PostLayoutProps) {
   const post = await getPost(params.slug);
 
-  if (!post) return;
+  if (!post) return {};
 
   return { title: post.title };
 }

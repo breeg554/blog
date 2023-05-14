@@ -13,7 +13,7 @@ export const PostsList: React.FC<PostsListProps> = ({ posts, className }) => {
   const renderItem = useCallback(
     (post: PostMeta) => (
       <Link href={post.id}>
-        <PostCard data={post} />
+        <PostCard post={post} />
       </Link>
     ),
     [],
