@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { getSortedPosts } from '@/lib/posts';
 import { PostsList } from '@/components';
 
