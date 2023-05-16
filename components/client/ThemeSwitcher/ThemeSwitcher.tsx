@@ -1,6 +1,6 @@
 'use client';
 import { FC, useState } from 'react';
-import { Theme } from '@/types';
+import { Theme } from '@/components/types';
 
 interface Props {
   theme: Theme;

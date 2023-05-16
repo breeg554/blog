@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
-import { ClassName } from '@/types';
+import { ClassName } from '@/components/types';
 
 interface ItemsListProps<T> extends ClassName {
   items: T[];

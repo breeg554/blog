@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { PostMeta } from '@/lib/posts.types';
 import { ItemsList, PostCard } from '@/components';
-import { ClassName } from '@/types';
+import { ClassName } from '@/components/types';
 
 interface PostsListProps extends ClassName {
   posts: PostMeta[];

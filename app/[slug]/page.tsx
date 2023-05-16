@@ -20,7 +20,9 @@ export default async function Post({ params }: PostProps) {
     <div className="relative">
       <Mdx className="px-4 max-w-3xl mx-auto" content={post.contentHtml} />
 
-      <FloatingSocialButtons />
+      <div className="hidden absolute top-0 right-14 h-full lg:block">
+        <FloatingSocialButtons />
+      </div>
     </div>
   );
 }

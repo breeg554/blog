@@ -8,3 +8,4 @@ export * from './AppNav';
 export * from './Avatar';
 export * from './AppFooter';
 export * from './client';
+export * from './SocialButtonLink';

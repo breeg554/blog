@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { BasicImage } from '@/components';
-import { ClassName } from '@/types';
+import { ClassName } from '@/components/types';
 
 interface BannerImageProps extends ClassName {
   src: string;
