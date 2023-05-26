@@ -1,11 +1,12 @@
 import './globals.css';
-import { PropsWithChildren } from 'react';
 import classNames from 'classnames';
+import { PropsWithChildren } from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { cookies } from 'next/headers';
 import { Merriweather, Roboto } from 'next/font/google';
 import { AppHeader } from '@components/AppHeader';
 import { AppFooter } from '@components/AppFooter';
 import { AppNav } from '@components/AppNav';
-import { cookies } from 'next/headers';
 
 export const metadata = {
   title: 'Blog!',
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
         <AppFooter />
       </body>
+      <Analytics />
     </html>
   );
 }
