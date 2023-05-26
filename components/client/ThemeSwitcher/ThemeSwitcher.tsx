@@ -27,7 +27,7 @@ export const ThemeSwitcher: FC<Props> = ({ theme }) => {
     <button
       onClick={toggleTheme}
       className={classNames(
-        'relative overflow-hidden rounded-xl w-10 h-10 p-2 bg-neutral-200 dark:bg-zinc-200 text-neutral-800 hover:text-blue-500 hover:text-blue-500',
+        'relative overflow-hidden rounded-lg w-10 h-10 p-2 bg-neutral-200 dark:bg-zinc-200 text-neutral-800 hover:text-blue-500 hover:text-blue-500',
       )}
     >
       <MoonSvg

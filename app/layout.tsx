@@ -9,8 +9,8 @@ import { AppFooter } from '@components/AppFooter';
 import { AppNav } from '@components/AppNav';
 
 export const metadata = {
-  title: 'Blog!',
-  description: 'Blog!!!',
+  title: 'Frontendcorner',
+  description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
 };
 
 const roboto = Roboto({
