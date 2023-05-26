@@ -1,8 +1,8 @@
 import React from 'react';
-import { PostMeta } from '@lib/posts.types';
+import { Post } from '@lib/posts';
 
 interface PostCardProps {
-  post: PostMeta;
+  post: Post;
 }
 
 export const PostCard: React.FC<PostCardProps> = ({ post }) => {
@@ -12,7 +12,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
         {post.title}
       </h3>
       <p className="text-xs text-neutral-600 dark:text-neutral-300 mb-2 ">
-        {post.formattedDate} &#x2022; <span>{post.readIn}</span>
+        {post.date} &#x2022; <span>{post.readIn}</span>
       </p>
       <p className="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 mb-1 md:text-base">
         {post.description}

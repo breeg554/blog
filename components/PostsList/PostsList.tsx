@@ -1,18 +1,18 @@
 import React, { useCallback } from 'react';
-import classNames from 'classnames';
 import Link from 'next/link';
-import { PostMeta } from '@lib/posts.types';
+import classNames from 'classnames';
+import { Post } from 'contentlayer/generated';
 import { ItemsList } from '@components/ItemsList';
 import { PostCard } from '@components/PostCard';
 import { ClassName } from '@components/types';
 
 interface PostsListProps extends ClassName {
-  posts: PostMeta[];
+  posts: Post[];
 }
 
 export const PostsList: React.FC<PostsListProps> = ({ posts, className }) => {
   const renderItem = useCallback(
-    (post: PostMeta) => (
+    (post: Post) => (
       <Link href={post.id}>
         <PostCard post={post} />
       </Link>

@@ -24,9 +24,10 @@
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "@lib/*": ["./lib/*"],
-      "@svgs": ["./svgs/index.ts"]
+      "@svgs": ["./svgs/index.ts"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".contentlayer/generated"],
   "exclude": ["node_modules"]
 }

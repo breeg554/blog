@@ -16,13 +16,13 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     notFound();
   }
 
-  const { title, subtitle, image, formattedDate, readIn } = post;
+  const { title, subtitle, image, date, readIn } = post;
 
   return (
     <section className="w-full py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
         <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-1">
-          {formattedDate} &#x2022; {readIn}
+          {date} &#x2022; {readIn}
         </p>
         <h1 className="font-bold text-2xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}

@@ -5,7 +5,7 @@ import { GithubIcon, InIcon, TwitterSvg } from '@svgs';
 
 export const AppFooter: React.FC = () => {
   return (
-    <footer className="flex justify-end px-4 py-6 mt-6 max-w-4xl mx-auto w-full">
+    <footer className="flex justify-end px-4 py-6 mt-2 max-w-4xl mx-auto w-full">
       <ul className="flex gap-2">
         <li>
           <SocialLink href={socials.twitter}>

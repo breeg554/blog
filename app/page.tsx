@@ -1,10 +1,8 @@
-import { getSortedPosts } from '@lib/posts';
 import { Avatar } from '@components/Avatar';
 import { PostsList } from '@components/PostsList';
+import { allPosts } from '@lib/posts';
 
 export default async function Home() {
-  const posts = await getSortedPosts();
-
   return (
     <div className="max-w-4xl mx-auto px-4 py-20">
       <section className="flex flex-col gap-3 mb-10">
@@ -30,7 +28,7 @@ export default async function Home() {
         <h2 className="text-base text-neutral-700 dark:text-neutral-300 font-sans mb-4">
           Recent posts
         </h2>
-        <PostsList className="flex gap-3 mb-10" posts={posts} />
+        <PostsList className="flex gap-3 mb-10" posts={allPosts} />
       </section>
     </div>
   );
