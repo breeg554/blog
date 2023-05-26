@@ -1,7 +1,7 @@
 import React, { HTMLProps } from 'react';
-import { GithubIcon, InIcon, TwitterSvg } from '@/svgs';
 import classNames from 'classnames';
-import { socials } from '@/utils';
+import { socials } from '@utils/constants';
+import { GithubIcon, InIcon, TwitterSvg } from '@svgs';
 
 export const AppFooter: React.FC = () => {
   return (

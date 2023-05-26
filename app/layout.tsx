@@ -1,9 +1,10 @@
 import './globals.css';
 import { PropsWithChildren } from 'react';
-import { Merriweather, Roboto } from 'next/font/google';
 import classNames from 'classnames';
-import { AppHeader } from '@/components/AppHeader';
-import { AppFooter, AppNav } from '@/components';
+import { Merriweather, Roboto } from 'next/font/google';
+import { AppHeader } from '@components/AppHeader';
+import { AppFooter } from '@components/AppFooter';
+import { AppNav } from '@components/AppNav';
 import { cookies } from 'next/headers';
 
 export const metadata = {

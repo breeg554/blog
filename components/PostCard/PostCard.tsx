@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostMeta } from '@/lib/posts.types';
+import { PostMeta } from '@lib/posts.types';
 
 interface PostCardProps {
   post: PostMeta;
@@ -7,7 +7,7 @@ interface PostCardProps {
 
 export const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <article>
+    <article className="border border-neutral-200 rounded px-4 py-6 bg-neutral-100 dark:bg-zinc-800 md:px-6 md:py-8">
       <h3 className="text-2xl text-neutral-900 dark:text-white font-bold font-sans line-clamp-3 mb-1 md:text-3xl">
         {post.title}
       </h3>

@@ -1,6 +1,6 @@
-import { getPost } from '@/lib/posts';
+import { getPost } from '@lib/posts';
 import { notFound } from 'next/navigation';
-import { Mdx } from '@/components/Mdx';
+import { Mdx } from '@components/Mdx';
 import { FloatingSocialButtons } from './components/FloatingSocialButtons';
 
 interface PostProps {

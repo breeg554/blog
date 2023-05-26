@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicImage } from '@/components';
+import { BasicImage } from '@components/BasicImage';
 interface AvatarProps {
   src: string;
   alt: string;

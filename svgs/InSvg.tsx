@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClassName } from '@/components/types';
+import { ClassName } from '@components/types';
 
 export const InIcon: React.FC<ClassName> = ({ className }) => {
   return (

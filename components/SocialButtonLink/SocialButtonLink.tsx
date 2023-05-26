@@ -1,6 +1,6 @@
 import React, { HTMLProps } from 'react';
 import classNames from 'classnames';
-import { BasicComponentSize } from '@/components/types';
+import { BasicComponentSize } from '@components/types';
 
 type SocialButtonLinkProps = Omit<HTMLProps<HTMLAnchorElement>, 'size'> & {
   size?: BasicComponentSize;

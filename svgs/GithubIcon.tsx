@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClassName } from '@/components/types';
+import { ClassName } from '@components/types';
 
 export const GithubIcon: React.FC<ClassName> = ({ className }) => {
   return (

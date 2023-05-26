@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { getPost } from '@/lib/posts';
+import { getPost } from '@lib/posts';
 import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
 

@@ -1,20 +1,25 @@
+'use client';
 import React from 'react';
 import classNames from 'classnames';
-import { ClassName } from '@/components/types';
-import { GithubIcon, InIcon, TwitterSvg } from '@/svgs';
-import { SocialButtonLink } from '@/components';
-import { socials } from '@/utils';
+import { GithubIcon, InIcon, TwitterSvg } from '@svgs';
+import { SocialButtonLink } from '@components/SocialButtonLink';
+import { useLinkedinShare } from '@hooks/useLinkedinHref';
+import { useTwitterShare } from '@hooks/useTwitterHref';
+import { socials } from '@utils/constants';
 
-export const FloatingSocialButtons: React.FC<ClassName> = ({ className }) => {
+export const FloatingSocialButtons: React.FC<any> = ({ className }) => {
+  const { href: twitter } = useTwitterShare({});
+  const { href: linkedin } = useLinkedinShare({});
+
   return (
     <ul className={classNames('flex flex-col gap-2 sticky top-10 right-0', className)}>
       <li>
-        <SocialButtonLink href={socials.twitter}>
+        <SocialButtonLink href={twitter}>
           <TwitterSvg />
         </SocialButtonLink>
       </li>
       <li>
-        <SocialButtonLink href={socials.linkedin}>
+        <SocialButtonLink href={linkedin}>
           <InIcon />
         </SocialButtonLink>
       </li>
