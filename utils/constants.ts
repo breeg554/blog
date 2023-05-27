@@ -3,3 +3,5 @@ export const socials = {
   linkedin: 'https://linkedin.com',
   twitter: 'https://twitter.com',
 };
+
+export const domain = 'https://frontendcorner.dev';

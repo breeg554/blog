@@ -7,10 +7,45 @@ import { Merriweather, Roboto } from 'next/font/google';
 import { AppHeader } from '@components/AppHeader';
 import { AppFooter } from '@components/AppFooter';
 import { AppNav } from '@components/AppNav';
+import { domain } from '@utils/constants';
 
 export const metadata = {
   title: 'Frontendcorner',
   description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
+  openGraph: {
+    title: 'Frontendcorner',
+    description: 'The React Framework for the Web',
+    url: domain,
+    siteName: 'Frontendcorner',
+    images: [
+      {
+        url: 'https://nextjs.org/og.png',
+        width: 800,
+        height: 600,
+      },
+      {
+        url: 'https://nextjs.org/og-alt.png',
+        width: 1800,
+        height: 1600,
+        alt: 'My custom alt',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Frontendcorner',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 const roboto = Roboto({

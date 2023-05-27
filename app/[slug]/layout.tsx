@@ -2,6 +2,8 @@ import { PropsWithChildren } from 'react';
 import { getPost } from '@lib/posts';
 import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
+import { domain } from '@utils/constants';
+import { getOgImageUrl } from '@utils/getOgImage';
 
 interface PostLayoutProps extends PropsWithChildren {
   params: {
@@ -46,5 +48,28 @@ export async function generateMetadata({ params }: PostLayoutProps) {
 
   if (!post) return {};
 
-  return { title: post.title };
+  const { title, description, slug, image, publishedAt } = post;
+  const ogImg = getOgImageUrl(image);
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description: 'The React Framework for the Web',
+      url: `${domain}/${slug}`,
+      siteName: 'Frontendcorner',
+      publishedTime: publishedAt,
+      images: [
+        {
+          url: ogImg,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImg],
+    },
+  };
 }

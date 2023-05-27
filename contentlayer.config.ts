@@ -21,6 +21,10 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (post) => dayjs(post.publishedAt).format('MMM d, YYYY'),
     },
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
   },
 }));
 
