@@ -11,18 +11,11 @@ interface PostsListProps extends ClassName {
 }
 
 export const PostsList: React.FC<PostsListProps> = ({ posts, className }) => {
-  const renderItem = useCallback(
-    (post: Post) => (
-      <Link href={post.slug}>
-        <PostCard post={post} />
-      </Link>
-    ),
-    [],
-  );
+  const renderItem = useCallback((post: Post) => <PostCard post={post} />, []);
 
   return (
     <ItemsList
-      className={classNames('flex flex-col gap-4 md:gap-6', className)}
+      className={classNames('flex flex-col gap-4', className)}
       items={posts}
       renderItem={renderItem}
     />

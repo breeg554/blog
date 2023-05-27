@@ -4,7 +4,7 @@ import { allPosts } from '@lib/posts';
 
 export default async function Home() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-20">
+    <div className="max-w-4xl mx-auto px-4 py-12 md:py-20">
       <section className="flex flex-col gap-3 mb-10">
         <div className="flex items-center gap-3">
           <Avatar src="/me-sm.jpeg" alt="Dawid Kiełbasa" />

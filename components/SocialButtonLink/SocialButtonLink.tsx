@@ -1,3 +1,4 @@
+'use client';
 import React, { HTMLProps } from 'react';
 import classNames from 'classnames';
 import { BasicComponentSize } from '@components/types';
