@@ -13,7 +13,7 @@ interface PostsListProps extends ClassName {
 export const PostsList: React.FC<PostsListProps> = ({ posts, className }) => {
   const renderItem = useCallback(
     (post: Post) => (
-      <Link href={post.id}>
+      <Link href={post.slug}>
         <PostCard post={post} />
       </Link>
     ),

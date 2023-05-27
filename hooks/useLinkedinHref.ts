@@ -1,5 +1,7 @@
 'use client';
 import { useCallback } from 'react';
+import { domain } from '@utils/constants';
+import { usePathname } from 'next/navigation';
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/sharing/share-offsite/';
 
@@ -8,15 +10,17 @@ interface UseLinkedinShareProps {
 }
 
 export const useLinkedinShare = ({ url }: UseLinkedinShareProps) => {
+  const pathname = usePathname();
+
   const createHref = useCallback(() => {
     const shareUrl = new URL(LINKEDIN_URL);
 
     shareUrl.search = new URLSearchParams({
-      url: url || window?.location?.href,
+      url: url || `${domain}${pathname}`,
     }).toString();
 
     return shareUrl.href;
-  }, [url]);
+  }, [pathname, url]);
 
   return { href: createHref() };
 };

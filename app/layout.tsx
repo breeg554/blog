@@ -6,12 +6,12 @@ import { cookies } from 'next/headers';
 import { Merriweather, Roboto } from 'next/font/google';
 import { AppHeader } from '@components/AppHeader';
 import { AppFooter } from '@components/AppFooter';
-import { AppNav } from '@components/AppNav';
 import { domain } from '@utils/constants';
 
 export const metadata = {
   title: 'Frontendcorner',
   description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
+  metadataBase: new URL(domain),
   openGraph: {
     title: 'Frontendcorner',
     description: 'The React Framework for the Web',
@@ -19,15 +19,7 @@ export const metadata = {
     siteName: 'Frontendcorner',
     images: [
       {
-        url: 'https://nextjs.org/og.png',
-        width: 800,
-        height: 600,
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png',
-        width: 1800,
-        height: 1600,
-        alt: 'My custom alt',
+        url: `${domain}/logo.svg`,
       },
     ],
   },
@@ -69,9 +61,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       className={classNames('font-serif', merri.variable, roboto.variable, theme?.value)}
     >
       <body className="min-h-screen bg-background text-black dark:bg-zinc-900 dark:text-white">
-        <AppHeader>
-          <AppNav />
-        </AppHeader>
+        <AppHeader />
 
         <main className="grow max-w-5xl mx-auto">{children}</main>
 
