@@ -13,7 +13,8 @@ interface PostLayoutProps extends PropsWithChildren {
 }
 
 export default async function PostLayout({ children, params }: PostLayoutProps) {
-  const post = await getPost(params.slug);
+  const { slug } = params;
+  const post = await getPost(slug);
 
   if (!post) {
     notFound();
@@ -24,10 +25,12 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
   return (
     <section className="w-full py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
-        <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-1">
-          {date} &#x2022; {readIn}
-        </p>
-        <PostViews slug={post.slug} />
+        <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-1 flex gap-3 items-center justify-center">
+          <p>{date}</p>
+          <p>{readIn}</p>
+          <PostViews slug={post.slug} countViews />
+        </div>
+
         <h1 className="font-bold text-2xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}
         </h1>

@@ -1,11 +1,12 @@
 import useSWR from 'swr';
 import { ViewsApi } from '@api';
+import useSWRMutation from 'swr/mutation';
 
 export const useViews = () => {
   const viewsApi = new ViewsApi();
 
   const useViewsQuery = () => {
-    return useSWR('/api/views', viewsApi.getViews);
+    return useSWR(['/api/views'], () => viewsApi.getViews());
   };
 
   const usePostViewsQuery = (slug: string) => {
@@ -14,5 +15,9 @@ export const useViews = () => {
     return (views || []).find((view) => view.slug === slug);
   };
 
-  return { useViewsQuery, usePostViewsQuery };
+  const useUpdateViews = (slug: string) => {
+    return useSWRMutation(['/api/views', slug], () => viewsApi.updateViews(slug));
+  };
+
+  return { useViewsQuery, usePostViewsQuery, useUpdateViews };
 };
