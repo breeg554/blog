@@ -1,5 +1,6 @@
 import useSWR from 'swr';
-import { ViewsApi } from '@api';
+import { ViewsApi } from '@lib/ViewsApi';
+
 import useSWRMutation from 'swr/mutation';
 
 export const useViews = () => {
