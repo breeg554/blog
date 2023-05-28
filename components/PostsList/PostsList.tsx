@@ -1,5 +1,4 @@
-import React, { useCallback } from 'react';
-import Link from 'next/link';
+import React from 'react';
 import classNames from 'classnames';
 import { Post } from 'contentlayer/generated';
 import { ItemsList } from '@components/ItemsList';
@@ -10,8 +9,8 @@ interface PostsListProps extends ClassName {
   posts: Post[];
 }
 
-export const PostsList: React.FC<PostsListProps> = ({ posts, className }) => {
-  const renderItem = useCallback((post: Post) => <PostCard post={post} />, []);
+export const PostsList = ({ posts, className }: PostsListProps) => {
+  const renderItem = (post: Post) => <PostCard post={post} />;
 
   return (
     <ItemsList

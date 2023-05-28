@@ -28,6 +28,7 @@ export default async function Home() {
         <h2 className="text-base text-neutral-700 dark:text-neutral-300 font-sans mb-4">
           Recent posts
         </h2>
+        {/* @ts-expect-error Async Server Component */}
         <PostsList className="flex gap-3 mb-10" posts={allPosts} />
       </section>
     </div>

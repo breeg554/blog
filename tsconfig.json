@@ -25,6 +25,7 @@
       "@utils/*": ["./utils/*"],
       "@lib/*": ["./lib/*"],
       "@svgs": ["./svgs/index.ts"],
+      "@api": ["./api/index.ts"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },

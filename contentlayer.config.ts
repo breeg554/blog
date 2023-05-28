@@ -7,7 +7,6 @@ export const Post = defineDocumentType(() => ({
   filePathPattern: `*.mdx`,
   contentType: 'mdx',
   fields: {
-    id: { type: 'string', required: true },
     title: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
     description: { type: 'string', required: true },
@@ -22,6 +21,10 @@ export const Post = defineDocumentType(() => ({
       resolve: (post) => dayjs(post.publishedAt).format('MMM d, YYYY'),
     },
     slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
+    id: {
       type: 'string',
       resolve: (doc) => doc._raw.flattenedPath,
     },

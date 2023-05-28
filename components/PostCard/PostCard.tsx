@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Post } from '@lib/posts';
 import SocialLinks from './SocialLinks';
+import { PostViews } from '@components/client/PostViews';
 
 interface PostCardProps {
   post: Post;
@@ -23,7 +24,8 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <div className="text-xs text-neutral-700 dark:text-neutral-300 flex items-center gap-3">
         <p>{post.date}</p>
         <p>{post.readIn}</p>
-        <p>312 views</p>
+
+        <PostViews slug={post.slug} />
       </div>
 
       <div className="w-full border-b border-neutral-200 mt-4 mb-2" />

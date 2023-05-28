@@ -1,4 +1,5 @@
 'use client';
+import { FC } from 'react';
 import { InIcon, TwitterSvg } from '@svgs';
 import { SocialButtonLink } from '@components/SocialButtonLink';
 import { useTwitterShare } from '@hooks/useTwitterHref';
@@ -9,7 +10,7 @@ interface SocialLinksProps {
   post: Post;
 }
 
-const SocialLinks: React.FC<SocialLinksProps> = ({ post }) => {
+const SocialLinks: FC<SocialLinksProps> = ({ post }) => {
   const { href: twitter } = useTwitterShare({ url: post.slug });
   const { href: linkedin } = useLinkedinShare({ url: post.slug });
 

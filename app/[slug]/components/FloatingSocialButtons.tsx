@@ -13,12 +13,12 @@ export const FloatingSocialButtons: React.FC<any> = ({ className }) => {
   return (
     <ul className={classNames('flex flex-col gap-2 sticky top-10 right-0', className)}>
       <li>
-        <SocialButtonLink href={twitter}>
+        <SocialButtonLink href={twitter} title="Share on Twitter">
           <TwitterSvg />
         </SocialButtonLink>
       </li>
       <li>
-        <SocialButtonLink href={linkedin}>
+        <SocialButtonLink href={linkedin} title="Share on Linkedin">
           <InIcon />
         </SocialButtonLink>
       </li>

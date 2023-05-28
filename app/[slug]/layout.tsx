@@ -1,9 +1,10 @@
-import { PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { getPost } from '@lib/posts';
 import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
 import { domain } from '@utils/constants';
 import { getOgImageUrl } from '@utils/getOgImage';
+import { PostViews } from '@components/client/PostViews';
 
 interface PostLayoutProps extends PropsWithChildren {
   params: {
@@ -26,6 +27,7 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
         <p className="text-sm text-neutral-700 dark:text-neutral-300 mb-1">
           {date} &#x2022; {readIn}
         </p>
+        <PostViews slug={post.slug} />
         <h1 className="font-bold text-2xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}
         </h1>
