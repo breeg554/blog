@@ -4,7 +4,7 @@ import { BannerImage } from './components/BannerImage';
 import { notFound } from 'next/navigation';
 import { domain } from '@utils/constants';
 import { getOgImageUrl } from '@utils/getOgImage';
-import { PostViews } from '@components/client/PostViews';
+import { PostMeta } from '@components/PostMeta';
 
 interface PostLayoutProps extends PropsWithChildren {
   params: {
@@ -20,16 +20,12 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     notFound();
   }
 
-  const { title, subtitle, image, date, readIn } = post;
+  const { title, subtitle, image } = post;
 
   return (
     <section className="w-full py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
-        <div className="text-sm text-neutral-700 dark:text-neutral-300 mb-1 flex gap-3 items-center justify-center">
-          <p>{date}</p>
-          <p>{readIn}</p>
-          <PostViews slug={post.slug} countViews />
-        </div>
+        <PostMeta className="mb-1 text-sm justify-center" meta={post} countViews />
 
         <h1 className="font-bold text-2xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}

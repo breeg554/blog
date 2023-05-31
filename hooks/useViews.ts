@@ -13,6 +13,8 @@ export const useViews = () => {
   const usePostViewsQuery = (slug: string) => {
     const { data: views } = useViewsQuery();
 
+    if (!views) return;
+
     return (views || []).find((view) => view.slug === slug);
   };
 
