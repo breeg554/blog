@@ -26,7 +26,7 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
   return (
     <section className="w-full py-10 md:py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
-        <PostMeta className="mb-1 text-sm justify-center" meta={post} />
+        <PostMeta className="mb-1 text-sm justify-center" meta={post} countViews />
 
         <h1 className="font-bold text-3xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}

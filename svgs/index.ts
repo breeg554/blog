@@ -4,3 +4,4 @@ export * from './GithubIcon';
 export * from './MoonSvg';
 export * from './SunSvg';
 export * from './LogoSvg';
+export * from './LinkSvg';

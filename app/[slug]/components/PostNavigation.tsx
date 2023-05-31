@@ -16,7 +16,7 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({ slug }) => {
         {previousPost && (
           <li>
             <Link
-              className="underline hover:no-underline hover:text-blue-500"
+              className="text-sm underline hover:no-underline hover:text-blue-500"
               href={previousPost.slug}
             >
               {previousPost.title}
@@ -26,7 +26,10 @@ export const PostNavigation: React.FC<PostNavigationProps> = ({ slug }) => {
 
         {nextPost && (
           <li>
-            <Link className="underline hover:no-underline hover:text-blue-500" href={nextPost.slug}>
+            <Link
+              className="text-sm underline hover:no-underline hover:text-blue-500"
+              href={nextPost.slug}
+            >
               {nextPost.title}
             </Link>
           </li>
