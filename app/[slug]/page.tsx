@@ -1,3 +1,4 @@
+import React from 'react';
 import { getPost } from '@lib/posts';
 import { notFound } from 'next/navigation';
 import { Mdx } from '@components/Mdx';

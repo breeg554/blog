@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { domain } from '@utils/constants';
 import { getOgImageUrl } from '@utils/getOgImage';
 import { PostMeta } from '@components/PostMeta';
+import { PostNavigation } from './components/PostNavigation';
 
 interface PostLayoutProps extends PropsWithChildren {
   params: {
@@ -14,7 +15,7 @@ interface PostLayoutProps extends PropsWithChildren {
 
 export default async function PostLayout({ children, params }: PostLayoutProps) {
   const { slug } = params;
-  const post = await getPost(slug);
+  const post = getPost(slug);
 
   if (!post) {
     notFound();
@@ -23,11 +24,11 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
   const { title, subtitle, image } = post;
 
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-10 md:py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
-        <PostMeta className="mb-1 text-sm justify-center" meta={post} countViews />
+        <PostMeta className="mb-1 text-sm justify-center" meta={post} />
 
-        <h1 className="font-bold text-2xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
+        <h1 className="font-bold text-3xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           {title}
         </h1>
         {subtitle && (
@@ -40,12 +41,17 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
       {image && <BannerImage className="mb-4 md:mb-10" src={image} alt={title} />}
 
       {children}
+
+      <div className="max-w-3xl mx-auto px-4 mt-14">
+        <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-2">See also</h3>
+        <PostNavigation slug={slug} />
+      </div>
     </section>
   );
 }
 
 export async function generateMetadata({ params }: PostLayoutProps) {
-  const post = await getPost(params.slug);
+  const post = getPost(params.slug);
 
   if (!post) return {};
 
