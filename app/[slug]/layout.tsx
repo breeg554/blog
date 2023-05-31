@@ -29,13 +29,9 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     <section className="w-full py-10 md:py-20">
       <header className="max-w-3xl mx-auto font-sans text-center px-4 mb-6 md:mb-10">
         <PostMeta className="mb-1 text-sm justify-center" meta={post} countViews />
-
-        <Balancer>
-          <h1 className="font-bold text-3xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
-            {title}
-          </h1>
-        </Balancer>
-
+        <h1 className="font-bold text-3xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
+          <Balancer>{title}</Balancer>
+        </h1>
         {subtitle && (
           <h2 className="text-base font-normal text-neutral-700 dark:text-neutral-300">
             {subtitle}
