@@ -5,8 +5,8 @@ import { GithubIcon, InIcon, TwitterSvg } from '@svgs';
 
 export const AppFooter: React.FC = () => {
   return (
-    <div className="border-t border-neutral-200">
-      <footer className="flex justify-end px-4 py-6 max-w-4xl mx-auto w-full md:py-8">
+    <footer className="border-t border-neutral-200">
+      <div className="flex justify-end px-4 py-6 max-w-4xl mx-auto w-full md:py-8">
         <ul className="flex gap-2">
           <li>
             <SocialLink href={socials.twitter}>
@@ -27,8 +27,8 @@ export const AppFooter: React.FC = () => {
             </SocialLink>
           </li>
         </ul>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 

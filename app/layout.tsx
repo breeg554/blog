@@ -63,7 +63,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className="min-h-screen bg-background text-black dark:bg-zinc-900 dark:text-white">
         <AppHeader />
 
-        <main className="grow max-w-5xl mx-auto">{children}</main>
+        <main className="max-w-5xl mx-auto">{children}</main>
 
         <AppFooter />
       </body>
