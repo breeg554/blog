@@ -28,7 +28,11 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <div className="w-full flex justify-between">
         <PostShareLinks pathname={`/${post.slug}`} post={post} />
 
-        <Link href={post.slug} className="text-xs font-bold text-neutral-900 dark:text-white">
+        <Link
+          href={post.slug}
+          className="text-xs font-bold text-neutral-900 dark:text-white"
+          aria-label={post.title}
+        >
           Read more
         </Link>
       </div>

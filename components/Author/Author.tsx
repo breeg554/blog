@@ -16,7 +16,7 @@ export const Author: React.FC<AuthorProps> = ({ size = 'lg' }) => {
   return (
     <section>
       <div className="flex items-center gap-3">
-        <Avatar src="/me-sm.jpeg" alt="Dawid Kiełbasa" size={size} />
+        <Avatar src="/me.webp" alt="Dawid Kiełbasa" size={size} />
         <div>
           <h1
             className={classNames(
@@ -26,9 +26,44 @@ export const Author: React.FC<AuthorProps> = ({ size = 'lg' }) => {
           >
             Dawid Kiełbasa
           </h1>
-          <p className="text-neutral-700 dark:text-neutral-300 text-xs max-w-md">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad deserunt eius expedita.
+          <p className="text-neutral-700 dark:text-neutral-300 text-sm max-w-sm md:text-base">
+            Hi there 👋 Welcome to my <span className="text-blue-500">corner</span> of frontend web!
           </p>
+          {/*<ul className="flex gap-2">*/}
+          {/*  <li>*/}
+          {/*    <a*/}
+          {/*      rel="noreferrer noopener"*/}
+          {/*      target="_blank"*/}
+          {/*      className={classNames(*/}
+          {/*        'text-sm   cursor-pointer font-sans text-neutral-700 dark:text-neutral-300 hover:text-blue-500 md:gap-2',*/}
+          {/*      )}*/}
+          {/*    >*/}
+          {/*      Twitter*/}
+          {/*    </a>*/}
+          {/*  </li>*/}
+          {/*  <li>*/}
+          {/*    <a*/}
+          {/*      rel="noreferrer noopener"*/}
+          {/*      target="_blank"*/}
+          {/*      className={classNames(*/}
+          {/*        'text-sm  cursor-pointer font-sans text-neutral-700 dark:text-neutral-300 hover:text-blue-500  md:gap-2',*/}
+          {/*      )}*/}
+          {/*    >*/}
+          {/*      Linkedin*/}
+          {/*    </a>*/}
+          {/*  </li>*/}
+          {/*  <li>*/}
+          {/*    <a*/}
+          {/*      rel="noreferrer noopener"*/}
+          {/*      target="_blank"*/}
+          {/*      className={classNames(*/}
+          {/*        'text-sm   cursor-pointer font-sans text-neutral-700 dark:text-neutral-300 hover:text-blue-500  md:gap-2',*/}
+          {/*      )}*/}
+          {/*    >*/}
+          {/*      Github*/}
+          {/*    </a>*/}
+          {/*  </li>*/}
+          {/*</ul>*/}
         </div>
       </div>
     </section>
