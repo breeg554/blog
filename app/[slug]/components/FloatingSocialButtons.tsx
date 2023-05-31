@@ -1,14 +1,23 @@
 'use client';
 import React from 'react';
 import classNames from 'classnames';
-import { InIcon, TwitterSvg } from '@svgs';
+import { RedditSvg, TwitterSvg } from '@svgs';
 import { SocialButtonLink } from '@components/SocialButtonLink';
-import { useLinkedinShare } from '@hooks/useLinkedinHref';
-import { useTwitterShare } from '@hooks/useTwitterHref';
+import { useTwitterShare } from '@hooks/useTwitterShare';
+import { useRedditShare } from '@hooks/useRedditShare';
+import { ClassName } from '@components/types';
+import { Post } from '@lib/posts';
 
-export const FloatingSocialButtons: React.FC<any> = ({ className }) => {
-  const { href: twitter } = useTwitterShare({});
-  const { href: linkedin } = useLinkedinShare({});
+interface FloatingSocialButtonsProps extends ClassName {
+  post: Post;
+}
+
+export const FloatingSocialButtons: React.FC<FloatingSocialButtonsProps> = ({
+  post,
+  className,
+}) => {
+  const { href: twitter } = useTwitterShare();
+  const { href: reddit } = useRedditShare({ title: post.title });
 
   return (
     <ul className={classNames('flex flex-col gap-2 sticky top-10 right-0', className)}>
@@ -18,8 +27,8 @@ export const FloatingSocialButtons: React.FC<any> = ({ className }) => {
         </SocialButtonLink>
       </li>
       <li>
-        <SocialButtonLink href={linkedin} title="Share on Linkedin">
-          <InIcon />
+        <SocialButtonLink href={reddit} title="Share on Reddit">
+          <RedditSvg />
         </SocialButtonLink>
       </li>
     </ul>

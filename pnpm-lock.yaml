@@ -21,6 +21,7 @@ specifiers:
   prisma: ^4.14.1
   react: 18.2.0
   react-dom: 18.2.0
+  react-wrap-balancer: ^0.5.0
   rehype-pretty-code: ^0.9.6
   shiki: ^0.14.2
   swr: ^2.1.5
@@ -39,6 +40,7 @@ dependencies:
   next-contentlayer: 0.3.2_cmp7sjki5xcmfyvhcokzzink7a
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-wrap-balancer: 0.5.0_react@18.2.0
   rehype-pretty-code: 0.9.6_shiki@0.14.2
   shiki: 0.14.2
   swr: 2.1.5_react@18.2.0
@@ -4130,6 +4132,14 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-wrap-balancer/0.5.0_react@18.2.0:
+    resolution: {integrity: sha512-5vwe5QDczQ9zwAtv3iEVj8hdMbNwQtM/QlSNLJfDUzRE9noPtxevb+Kon916Mu2RUorCrAtashQ1F9BVBjdeZg==}
+    peerDependencies:
+      react: '>=16.8.0 || ^17.0.0 || ^18'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

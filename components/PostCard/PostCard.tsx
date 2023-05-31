@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Post } from '@lib/posts';
-import SocialLinks from './SocialLinks';
 import { PostMeta } from '@components/PostMeta';
+import { PostShareLinks } from '@components/client';
 
 interface PostCardProps {
   post: Post;
@@ -26,7 +26,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
       <div className="w-full border-b border-neutral-200 mt-4 mb-2" />
 
       <div className="w-full flex justify-between">
-        <SocialLinks post={post} />
+        <PostShareLinks pathname={`/${post.slug}`} post={post} />
 
         <Link href={post.slug} className="text-xs font-bold text-neutral-900 dark:text-white">
           Read more

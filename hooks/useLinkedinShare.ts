@@ -6,21 +6,21 @@ import { usePathname } from 'next/navigation';
 export const LINKEDIN_URL = 'https://www.linkedin.com/sharing/share-offsite/';
 
 interface UseLinkedinShareProps {
-  url?: string;
+  pathname?: string;
 }
 
-export const useLinkedinShare = ({ url }: UseLinkedinShareProps) => {
-  const pathname = usePathname();
+export const useLinkedinShare = ({ pathname }: UseLinkedinShareProps = {}) => {
+  const currentPathname = usePathname();
 
   const createHref = useCallback(() => {
     const shareUrl = new URL(LINKEDIN_URL);
 
     shareUrl.search = new URLSearchParams({
-      url: url || `${domain}${pathname}`,
+      url: `${domain}${pathname || currentPathname}`,
     }).toString();
 
     return shareUrl.href;
-  }, [pathname, url]);
+  }, [pathname, currentPathname]);
 
   return { href: createHref() };
 };
