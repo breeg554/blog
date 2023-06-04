@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Theme } from '@components/types';
 import classNames from 'classnames';
+import { Theme } from '@components/types';
 import { MoonSvg, SunSvg } from '@svgs';
 
 interface Props {

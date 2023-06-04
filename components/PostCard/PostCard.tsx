@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Post } from '@lib/posts';
 import { PostMeta } from '@components/PostMeta';
-import { PostShareLinks } from '@components/client';
+import { PostShareLinks } from '@components/client/PostShareLinks';
 
 interface PostCardProps {
   post: Post;

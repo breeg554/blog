@@ -5,7 +5,7 @@ import { getPost } from '@lib/posts';
 import { domain } from '@utils/constants';
 import { getOgImageUrl } from '@utils/getOgImage';
 import { PostMeta } from '@components/PostMeta';
-import { PostShareLinks } from '@components/client';
+import { PostShareLinks } from '@components/client/PostShareLinks';
 import { BannerImage } from './components/BannerImage';
 import { PostNavigation } from './components/PostNavigation';
 
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: PostLayoutProps) {
     description,
     openGraph: {
       title,
-      description: 'The React Framework for the Web',
+      description,
       url: `${domain}/${slug}`,
       siteName: 'Frontendcorner',
       publishedTime: publishedAt,
