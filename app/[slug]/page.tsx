@@ -10,7 +10,7 @@ interface PostProps {
   };
 }
 
-export default async function Post({ params }: PostProps) {
+export default async function Page({ params }: PostProps) {
   const post = await getPost(params.slug);
 
   if (!post) {

@@ -1,8 +1,8 @@
-import { allPosts as ContentlayerAllPost, Post as ContentlayerPost } from 'contentlayer/generated';
+import { allPosts as contentlayerAllPost, Post as ContentlayerPost } from 'contentlayer/generated';
 
 export type Post = ContentlayerPost;
 
-export const allPosts = ContentlayerAllPost;
+export const allPosts = contentlayerAllPost;
 
 export function getPost(slug: string): Post | undefined {
   return allPosts.find((post) => post.slug === slug);

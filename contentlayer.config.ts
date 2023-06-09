@@ -22,11 +22,11 @@ export const Post = defineDocumentType(() => ({
     },
     slug: {
       type: 'string',
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (post) => post._raw.flattenedPath,
     },
     id: {
       type: 'string',
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (post) => post._raw.flattenedPath,
     },
   },
 }));
