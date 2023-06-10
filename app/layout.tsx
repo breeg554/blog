@@ -55,10 +55,12 @@ const merri = Merriweather({
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const theme = cookies().get('theme');
+
+  console.log(theme?.value);
   return (
     <html
       lang="en"
-      className={classNames('font-serif', merri.variable, roboto.variable, theme?.value)}
+      className={classNames('font-serif', merri.variable, roboto.variable, theme?.value || 'light')}
     >
       <body className="min-h-screen bg-neutral-50 text-black dark:bg-zinc-900 dark:text-white">
         <AppHeader />
