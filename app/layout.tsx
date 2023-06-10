@@ -60,7 +60,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       lang="en"
       className={classNames('font-serif', merri.variable, roboto.variable, theme?.value)}
     >
-      <body className="min-h-screen bg-background text-black dark:bg-zinc-900 dark:text-white">
+      <body className="min-h-screen bg-neutral-50 text-black dark:bg-zinc-900 dark:text-white">
         <AppHeader />
 
         <main className="max-w-5xl mx-auto">{children}</main>
