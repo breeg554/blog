@@ -17,7 +17,7 @@ export const PostCard: React.FC<PostCardProps> = ({ post }) => {
         </h3>
       </Link>
 
-      <p className="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 mb-3 md:text-base">
+      <p className="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-3 mb-3 md:text-base">
         {post.description}
       </p>
 

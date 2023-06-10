@@ -23,7 +23,7 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
     notFound();
   }
 
-  const { title, subtitle, image } = post;
+  const { title, image } = post;
 
   return (
     <section className="w-full py-10 md:py-20">
@@ -32,11 +32,6 @@ export default async function PostLayout({ children, params }: PostLayoutProps) 
         <h1 className="font-bold text-3xl text-neutral-900 dark:text-white mb-2 md:text-4xl">
           <Balancer>{title}</Balancer>
         </h1>
-        {subtitle && (
-          <h2 className="text-base font-normal text-neutral-700 dark:text-neutral-300">
-            {subtitle}
-          </h2>
-        )}
       </header>
 
       {image && <BannerImage className="mb-4 md:mb-10" src={image} alt={title} />}

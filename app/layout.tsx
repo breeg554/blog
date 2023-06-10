@@ -19,7 +19,7 @@ export const metadata = {
     siteName: 'Frontendcorner',
     images: [
       {
-        url: `${domain}/logo.svg`,
+        url: `${domain}/logo.png`,
       },
     ],
   },
@@ -56,7 +56,6 @@ const merri = Merriweather({
 export default function RootLayout({ children }: PropsWithChildren) {
   const theme = cookies().get('theme');
 
-  console.log(theme?.value);
   return (
     <html
       lang="en"

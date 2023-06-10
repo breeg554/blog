@@ -13,7 +13,6 @@ export const Post = defineDocumentType(() => ({
     publishedAt: { type: 'date', required: true },
     description: { type: 'string', required: true },
     readIn: { type: 'string', required: true },
-    subtitle: { type: 'string' },
     image: { type: 'string' },
   },
   computedFields: {
