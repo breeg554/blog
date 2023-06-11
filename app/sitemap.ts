@@ -4,7 +4,7 @@ import { domain } from '@utils/constants';
 export default async function sitemap() {
   const posts = allPosts.map((post) => ({
     url: `${domain}/${post.slug}`,
-    lastModified: post.publishedAt,
+    lastModified: post.publishedAt.split('T')[0],
   }));
 
   const routes = [''].map((route) => ({
