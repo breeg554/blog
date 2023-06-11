@@ -14,12 +14,12 @@ export const metadata = {
   metadataBase: new URL(domain),
   openGraph: {
     title: 'Frontendcorner',
-    description: 'The React Framework for the Web',
+    description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
     url: domain,
     siteName: 'Frontendcorner',
     images: [
       {
-        url: `${domain}/logo.png`,
+        url: `${domain}/logo-large.webp`,
       },
     ],
   },
