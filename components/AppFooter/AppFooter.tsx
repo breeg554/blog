@@ -1,7 +1,7 @@
 import React, { HTMLProps } from 'react';
 import classNames from 'classnames';
 import { socials } from '@utils/constants';
-import { GithubIcon, InIcon, TwitterSvg } from '@svgs';
+import { InIcon, TwitterSvg } from '@svgs';
 
 export const AppFooter: React.FC = () => {
   return (
@@ -18,12 +18,6 @@ export const AppFooter: React.FC = () => {
             <SocialLink href={socials.linkedin}>
               <InIcon className="w-5 h-5" />
               Linkedin
-            </SocialLink>
-          </li>
-          <li>
-            <SocialLink href={socials.github}>
-              <GithubIcon className="w-5 h-5" />
-              Github
             </SocialLink>
           </li>
         </ul>
