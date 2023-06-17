@@ -1,7 +1,9 @@
 import React, { ComponentProps } from 'react';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { EmbeddedTweet, TweetComponents } from 'react-tweet';
 import classNames from 'classnames';
+import { ImageProps } from 'next/image';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { EmbeddedTweet } from 'react-tweet';
+import { BasicImage } from '@components/BasicImage';
 import { TweetMap } from '@lib/TweetApi';
 import { LinkSvg } from '@svgs';
 
@@ -31,7 +33,7 @@ export const Mdx: React.FC<MdxProps> = ({ content, className, tweets }) => {
 
   return (
     <article className={classNames('prose prose-neutral dark:prose-invert', className)}>
-      <Content components={{ ...mdxComponents, StaticTweet }} />
+      <Content components={{ ...mdxComponents, StaticTweet, Image: MdxImage }} />
     </article>
   );
 };
@@ -44,6 +46,15 @@ function MdxLink(props: ComponentProps<'a'>) {
       {...props}
       className="underline hover:no-underline hover:text-blue-500"
     />
+  );
+}
+
+function MdxImage(props: ImageProps) {
+  return (
+    <figure>
+      <BasicImage width={736} height={402} className="my-0" {...props} />
+      {props.alt && <figcaption className="text-center">{props.alt}</figcaption>}
+    </figure>
   );
 }
 
