@@ -9,14 +9,16 @@ import { AppFooter } from '@components/AppFooter';
 import { domain } from '@utils/constants';
 
 export const metadata = {
-  title: 'Frontendcorner',
-  description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
+  title: 'frontendcorner',
+  description:
+    "Hi, it's Dawid Kielbasa here. Welcome to my corner of frontend web! Stay a while and see what I've been working on.",
   metadataBase: new URL(domain),
   openGraph: {
-    title: 'Frontendcorner',
-    description: "Hi, it's Dawid Kiełbasa here. Welcome to my corner of frontend web!",
+    title: 'frontendcorner',
+    description:
+      "Hi, it's Dawid Kielbasa here. Welcome to my corner of frontend web! Stay a while and see what I've been working on.",
     url: domain,
-    siteName: 'Frontendcorner',
+    siteName: 'frontendcorner',
     images: [
       {
         url: `${domain}/logo-large.webp`,
@@ -25,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Frontendcorner',
+    title: 'frontendcorner',
   },
   robots: {
     index: true,

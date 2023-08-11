@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Avatar } from '@components/Avatar';
 import { BasicComponentSize } from '@components/types';
 
@@ -8,29 +7,17 @@ interface AuthorProps {
 }
 
 export const Author: React.FC<AuthorProps> = ({ size = 'lg' }) => {
-  const headingVariants = {
-    sm: 'text-xs md:text-sm',
-    md: 'text-sm md:text-xl',
-    lg: 'text-xl md:text-2xl',
-  };
-
   return (
     <section>
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <Avatar src="/me.webp" alt="Dawid Kiełbasa" size={size} />
-        <div>
-          <h1
-            className={classNames(
-              'text-neutral-900 font-bold dark:text-white',
-              headingVariants[size],
-            )}
-          >
-            Dawid Kiełbasa
-          </h1>
-          <p className="text-neutral-700 dark:text-neutral-300 text-sm max-w-sm md:text-base">
-            Hi there 👋 Welcome to my <span className="text-blue-500">corner</span> of frontend web!
-          </p>
-        </div>
+        <h1 className="text-neutral-700 dark:text-neutral-300 text-sm max-w-lg md:text-base">
+          <span className="text-neutral-900 font-bold text-xl">Hi there 👋</span>{' '}
+          <span className="block">
+            Dawid Kielbasa here. Welcome to my corner of frontend web! Stay a while and see what
+            I&apos;ve been working on.
+          </span>
+        </h1>
       </div>
     </section>
   );

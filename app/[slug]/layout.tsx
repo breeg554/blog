@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PostLayoutProps) {
       title,
       description,
       url: `${domain}/${slug}`,
-      siteName: 'Frontendcorner',
+      siteName: 'frontendcorner',
       publishedTime: publishedAt,
       images: [
         {
