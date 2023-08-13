@@ -1,0 +1,84 @@
+---
+title: 'Improve the SEO of Your Next.js Project Using Dynamic Sitemap.'
+publishedAt: '2023/08/13'
+description: 'Enhance your Next.js website SEO with sitemap.xml. Dive deeper into Next capabilities for improved site visibility.'
+image: '/posts/nextjs-sitemaps/background.webp'
+readIn: '2 min read'
+---
+
+Optimizing a website for SEO is crucial nowadays. Every blog owner aims to elevate their website's position in Google search results, but how can this be achieved?
+
+There are several important considerations to keep in mind, and [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview) rank high among them.
+
+## What is the sitemap.xml file?
+
+The sitemap.xml file is essentially an XML-formatted file (wow 🥸) that contains information about the various subpages within our website. It helps search robots, such as [Googlebot](https://developers.google.com/search/docs/crawling-indexing/googlebot?hl=pl), better comprehend the structure of our website, making it indispensable for SEO.
+
+## How to add sitemap file to Next.js website?
+
+Of course, you can create this file manually. Its structure is straightforward:
+
+- Begin with the standard protocol by creating a [urlset](https://www.sitemaps.org/protocol.html) tag.
+- Craft a **url** tag for every individual subpage you have on your site.
+- Incorporate a **loc** tag (indicating location) for each parent url tag.
+
+The example of simple **sitemap.xml** file might look like:
+
+```xml
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your_webiste_url.com</loc>
+  </url>
+  ...others subpages
+</urlset>
+```
+
+Once you've defined your other subpages, put this file in the **/public** directory. Done!
+
+Your sitemap is now accessible at **www.your_website_url.com/sitemap.xml**. Pretty straightforward, right?
+
+However, manually updating the sitemap after each change could get tedious. Thankfully, Next.js have a solution for that!
+
+## Dynamic sitemap file in Next app directory.
+
+All you need to do is add **sitemap.ts** file to the **/app** directory and return an array reflecting your website's structure.
+
+```ts
+// /app/sitemap.ts
+
+export default async function sitemap() {
+  return ['','/your_first_subpage'].map((route) => ({
+    url: `www.your_website_url.com${route}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }));
+}
+```
+Great, but what if you wish to include dynamic pages from, for example, your database or from your blog's MDX files? (Check out my [previous post](/contentlayer-and-nextjs) on how to easily set up Contentlayer in your Next.js app).
+
+It's not complex at all. Simply fetch the desired data within this file and merge the results with your pre-defined sitemap URLs.
+
+```ts
+// /app/sitemap.ts
+
+export default async function sitemap() {
+  const allPosts = await fetchPosts() // fetch data about your posts
+
+  const posts = allPosts.map((post) => ({
+    url: `www.your_website_url.com/${post.slug}`,
+    lastModified: post.publishedAt.split('T')[0],
+  }));
+
+  const routes =  ['','/your_first_subpage'].map((route) => ({
+    url: `www.your_website_url.com${route}`,
+    lastModified: new Date().toISOString().split('T')[0],
+  }));
+
+  return [...routes,...posts]
+}
+```
+
+Now visit **www.your_website_url.com/sitemap.xml** and see your dynamically generated sitemap.xml file!
+
+## Summary
+
+As you can see, adding sitemap in Next 13 is quite simple. Now you can submit a link to this sitemap file in your google search console!

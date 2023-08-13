@@ -18,7 +18,7 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     date: {
       type: 'string',
-      resolve: (post) => dayjs(post.publishedAt).format('MMM d, YYYY'),
+      resolve: (post) => dayjs(post.publishedAt).format('MMM D, YYYY'),
     },
     slug: {
       type: 'string',
