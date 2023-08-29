@@ -11,12 +11,12 @@ import { domain } from '@utils/constants';
 export const metadata = {
   title: 'frontendcorner',
   description:
-    "Hi, it's Dawid Kielbasa here. Welcome to my corner of frontend web! Stay a while and see what I've been working on.",
+    "Hi, it's Dawid Kielbasa here. Welcome to frontendcorner.dev! Stay a while and see what I've been working on.",
   metadataBase: new URL(domain),
   openGraph: {
     title: 'frontendcorner',
     description:
-      "Hi, it's Dawid Kielbasa here. Welcome to my corner of frontend web! Stay a while and see what I've been working on.",
+      "Hi, it's Dawid Kielbasa here. Welcome to frontendcorner.dev! Stay a while and see what I've been working on.",
     url: domain,
     siteName: 'frontendcorner',
     images: [
